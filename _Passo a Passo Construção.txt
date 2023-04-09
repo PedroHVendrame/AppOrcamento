@@ -1,0 +1,28 @@
+1° Instalação e Setup Inicial
+	Entre no diretório que será utilizado para o projeto e crie o ambiente virtual:
+		pip install virtualenv
+		pip install python-dotenv
+		python -m virtualenv venv
+	Ative o ambiente virtual:
+		venv\Scripts\Activate
+	Instale o Django
+		pip install django
+	Grava as dependencias do projeto em um arquivo pra consulta (sempre que atualizar ou utilizar algo novo rodar o comando novamente):
+		pip freeze > requirements.txt
+	Criar pasta chamada "setup" com os arquivos principais para o projeto:
+		django-admin startproject setup .
+	Rode o servidor:
+		>>>> python manage.py runserver
+		Para parar utilize CTRL+C
+
+2° Conectar o projeto usando Git no GitHub. Tirar as chaves Secretas.
+	Criar uma pasta .env na raiz do projeto
+	Criar arquivo "nome do projeto".env com chave do projeto presente no Campo SECRET_KEY em settings.py
+	incluir no inicio do arquivo o código:
+		from pathlib import Path, os
+		from dotenv import load_dotenv
+		load_dotenv()
+	Substituir a chave secreta por esse código
+		str(os.getenv('SECRET_KEY'))
+	Criar arquivo .gitignore na pasta .env. colar o código da página:
+	https://www.toptal.com/developers/gitignore/
